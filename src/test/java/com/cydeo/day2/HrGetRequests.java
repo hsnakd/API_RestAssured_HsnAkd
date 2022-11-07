@@ -44,8 +44,8 @@ public class HrGetRequests {
     @DisplayName("GET request to /regions/2")
     @Test
     public void test2(){
-        Response response = given().accept(ContentType.JSON)
-                            .when()
+        Response response =  given().accept(ContentType.JSON)
+                                    .when()
                                     .get("/regions/2");
 
         //verify status code
