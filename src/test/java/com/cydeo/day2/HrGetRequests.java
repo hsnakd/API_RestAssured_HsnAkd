@@ -11,11 +11,13 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class HrGetRequests {
 
-    //BeforeAll is a annotation equals to @BeforeClass in testNg, we use with static method name
+    //BeforeAll is an annotation equals to @BeforeClass in testNg, we use with static method name
     @BeforeAll
     public static void init(){
         //save baseurl inside this variable so that we dont need to type each http method.
-        baseURI = "http://44.202.119.26:1000/ords/hr";
+        /** ipAddress */
+        String ipAddress = "3.86.235.137";
+        baseURI = "http://" + ipAddress + ":1000/ords/hr";
     }
 
     @DisplayName("GET request to /regions")
@@ -36,6 +38,8 @@ public class HrGetRequests {
         and content type equals to application/json
         and response body contains   Americas
      */
+
+
 
     @DisplayName("GET request to /regions/2")
     @Test

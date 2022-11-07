@@ -23,6 +23,7 @@ public class SpartanGetRequests {
     public void test1(){
         /** endPoint */
         String endPoint = "/api/spartans";
+
         Response response =  RestAssured.given().accept(ContentType.JSON)
                                         .when()
                                         .get(baseUrl + endPoint);
@@ -60,15 +61,23 @@ public class SpartanGetRequests {
     @DisplayName("GET one spartan /api/spartans/3 and verify")
     @Test
     public void test2(){
+        /** endPoint */
+        String endPoint = "/api/spartans";
+        /** idNumber */
+        String idNumber = "/3";
         Response response = RestAssured.given().accept(ContentType.JSON).
-                when().get(baseUrl + "/api/spartans/3");
+                when().get(baseUrl + endPoint + idNumber);
 
 
         //verify status code 200
-        Assertions.assertEquals(200,response.statusCode());
+        /** statusCode */
+        int statusCode = 200;
+        Assertions.assertEquals(statusCode,response.statusCode());
 
         //verify content type
-        Assertions.assertEquals("application/json",response.contentType());
+        /** contentType */
+        String contentType = "application/json";
+        Assertions.assertEquals(contentType, response.contentType());
 
         //verify json body contains Fidole
         Assertions.assertTrue(response.body().asString().contains("Fidole"));
@@ -89,18 +98,25 @@ public class SpartanGetRequests {
     @Test
     public void test3(){
         //send request and save response inside the response object
-        Response response = RestAssured.when().get(baseUrl + "/api/hello");
+        /** endPoint */
+        String endPoint = "/api/hello";
+        Response response = RestAssured.when().get(baseUrl + endPoint);
 
         //verify status code 200
-        Assertions.assertEquals(200,response.statusCode());
+        /** statusCode */
+        int statusCode = 200;
+        Assertions.assertEquals(statusCode,response.statusCode());
 
         //verify content type
-        Assertions.assertEquals("text/plain;charset=UTF-8",response.contentType());
+        /** contentType */
+        String contentType = "text/plain;charset=UTF-8";
+        Assertions.assertEquals(contentType,response.contentType());
 
         //verify we have headers named date
-        //we use hasHeaderWithname method to verify header exist or not - it returns boolean
+        //we use hasHeaderWithName method to verify header exist or not - it returns boolean
         Assertions.assertTrue(response.headers().hasHeaderWithName("Date"));
-        //how to get and header from response using header key ?
+
+        //how to get any header from response using header key ?
         //we use response.header(String headerName) method to get any header value
         System.out.println("response.header(\"Content-Length\") = " + response.header("Content-Length"));
         System.out.println(response.header("Date"));
