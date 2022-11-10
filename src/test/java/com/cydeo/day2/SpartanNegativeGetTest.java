@@ -13,11 +13,15 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class SpartanNegativeGetTest {
 
+    //BeforeAll is an annotation equals to @BeforeClass in testNg, we use with static method name
     @BeforeAll
     public static void init(){
         //save baseurl inside this variable so that we dont need to type each http method.
-        baseURI = "http://44.202.119.26:8000";
+        /** ipAddress */
+        String ipAddress = "3.86.235.137";
+        baseURI = "http://" + ipAddress + ":8000";
     }
+
 
     /*TASK
     Given Accept type application/xml
@@ -29,9 +33,8 @@ public class SpartanNegativeGetTest {
     @DisplayName("GET request to /api/spartans/10")
     @Test
     public void test1(){
-        Response response = given()
-                                    .accept(ContentType.XML)
-                            .when()
+        Response response =  given().accept(ContentType.XML)
+                                    .when()
                                     .get("/api/spartans/10");
 
         //verify status code is 406
