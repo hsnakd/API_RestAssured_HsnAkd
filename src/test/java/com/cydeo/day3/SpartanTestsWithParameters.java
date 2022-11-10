@@ -18,7 +18,9 @@ public class SpartanTestsWithParameters {
     @BeforeAll
     public static void init(){
         //save baseurl inside this variable so that we dont need to type each http method.
-        baseURI = "http://52.207.61.129:8000";
+        /** ipAddress */
+        String ipAddress = "3.86.235.137";
+        baseURI = "http://" + ipAddress + ":8000";
     }
 
      /*   Given accept type is Json
@@ -33,11 +35,10 @@ public class SpartanTestsWithParameters {
     @Test
     public void test1(){
 
-        Response response = given().
-                                      accept(ContentType.JSON)
-                                      .and().pathParam("id", 5)
-                            .when()
-                                     .get("/api/spartans/{id}");
+        Response response =  given().accept(ContentType.JSON)
+                                    .and().pathParam("id", 5)
+                                    .when()
+                                    .get("/api/spartans/{id}");
         //verify status code
         assertEquals(200,response.statusCode());
         //verify content type
@@ -63,9 +64,9 @@ public class SpartanTestsWithParameters {
     @Test
     public void test2(){
 
-        Response response = given().accept(ContentType.JSON).log().all()
-                                      .pathParam("id", 500)
-                           .when()
+        Response response =  given().accept(ContentType.JSON).log().all()
+                                    .pathParam("id", 500)
+                                    .when()
                                     .get("/api/spartans/{id}");
 
         //verify status code 404
@@ -92,12 +93,12 @@ public class SpartanTestsWithParameters {
     @DisplayName("GET request to /api/spartans/search with Query Params")
     @Test
     public void test3(){
-    Response response= given().log().all().
-                                accept(ContentType.JSON)
-                              .and().queryParam("nameContains","e")
-                              .and().queryParam("gender","Female")
-                .when()
-                        .get("/api/spartans/search");
+    Response response =  given().log().all()
+                                .accept(ContentType.JSON)
+                                .and().queryParam("nameContains","e")
+                                .and().queryParam("gender","Female")
+                                .when()
+                                .get("/api/spartans/search");
 
         //verify status code 200
         assertEquals(200,response.statusCode());
@@ -119,11 +120,11 @@ public class SpartanTestsWithParameters {
         queryMap.put("nameContains","e");
         queryMap.put("gender","Female");
 
-        Response response = given().
-                                    log().all()
+        Response response = given()
+                                    .log().all()
                                     .accept(ContentType.JSON)
                                     .and().queryParams(queryMap)
-                            .when()
+                                    .when()
                                     .get("/api/spartans/search");
 
         //verify status code 200

@@ -30,10 +30,10 @@ public class ORDSApiTestsWithParameters {
     @Test
     public void test1(){
       Response response= given().accept(ContentType.JSON)
-                    .and().queryParam("q","{\"region_id\":2}")
-                    .log().all()
-            .when()
-                    .get("/countries");
+                                .and().queryParam("q","{\"region_id\":2}")
+                                .log().all()
+                                .when()
+                                .get("/countries");
 
       assertEquals(200,response.statusCode());
       assertEquals("application/json",response.header("Content-Type"));
