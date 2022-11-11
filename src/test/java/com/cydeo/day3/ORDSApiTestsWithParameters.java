@@ -13,14 +13,16 @@ public class ORDSApiTestsWithParameters {
 
     @BeforeAll
     public static void init(){
-        //save baseurl inside this variable so that we dont need to type each http method.
-        baseURI = "http://44.202.119.26:1000/ords/hr";
+        //save baseurl inside this variable so that we don't need to type each http method.
+        /** ipAddress */
+        String ipAddress = "3.86.235.137";
+        baseURI = "http://" + ipAddress + ":1000/ords/hr";
     }
 
     /*
         Given accept type is Json
         And parameters: q = {"region_id":2}
-        When users sends a GET request to "/countries"
+        When user sends a GET request to "/countries"
         Then status code is 200
         And Content type is application/json
         And Payload should contain "United States of America"
@@ -43,7 +45,7 @@ public class ORDSApiTestsWithParameters {
 
     }
     /*
-        Send a GET request to employees and get only employees who works as a IT_PROG
+        Send a GET request to employees and get only employees who work as an IT_PROG
 
      */
 

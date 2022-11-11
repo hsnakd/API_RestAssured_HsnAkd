@@ -17,7 +17,7 @@ public class SpartanTestsWithParameters {
 
     @BeforeAll
     public static void init(){
-        //save baseurl inside this variable so that we dont need to type each http method.
+        //save baseurl inside this variable so that we don't need to type each http method.
         /** ipAddress */
         String ipAddress = "3.86.235.137";
         baseURI = "http://" + ipAddress + ":8000";
