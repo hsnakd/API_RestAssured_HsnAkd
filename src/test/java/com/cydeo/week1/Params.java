@@ -1,17 +1,12 @@
 package com.cydeo.week1;
 
-import io.restassured.RestAssured;
-import io.restassured.http.ContentType;
-import io.restassured.http.Headers;
-import io.restassured.response.Response;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+import io.restassured.*;
+import io.restassured.http.*;
+import io.restassured.response.*;
+import org.junit.jupiter.api.*;
 
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.lang.management.*;
+import java.util.*;
 
 import static io.restassured.RestAssured.baseURI;
 
