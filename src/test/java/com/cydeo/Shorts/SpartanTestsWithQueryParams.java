@@ -1,13 +1,17 @@
 package com.cydeo.Shorts;
 
+import static io.restassured.RestAssured.*;
+
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertTrue;
+import java.util.HashMap;
+import java.util.Map;
+
+import static org.testng.Assert.*;
 
 
 public class SpartanTestsWithQueryParams {
@@ -17,43 +21,59 @@ public class SpartanTestsWithQueryParams {
     }
 
     @Test
-    public void PathTest1(){
-        Response response = RestAssured
-                .given().accept(ContentType.JSON)
-                .and().pathParam("id", 18)
-                .when().get("/api/spartans/{id}");
+    public void queryParam1(){
+        Response response =
+                given().accept(ContentType.JSON)
+                .queryParam("gender", "Female")
+                .queryParam("nameContains", "J")
+                .when().get("/api/spartans/search");
+
 
         assertEquals(response.statusCode(), 200);
 
         assertEquals(response.contentType(), "application/json");
 
-        assertTrue(response.body().asString().contains("Allen"));
+        assertTrue(response.body().asString().contains("Female"));
+
+        assertFalse(response.body().asString().contains("Male"));
+
+        assertTrue(response.body().asString().contains("Janette"));
 
         response.body().prettyPrint();
 
 
     }
 
-
-
     @Test
-    public void negativePathParamTest(){
-        Response response = RestAssured
-                .given().accept(ContentType.JSON)
-                .and().pathParam("id", 500)
-                .when().get("/api/spartans/{id}");
+    public void queryParams2(){
+        Map<String, Object> paramsMap = new HashMap<>();
+        paramsMap.put("gender", "Female");
+        paramsMap.put("nameContains", "J");
 
 
-        assertEquals(response.statusCode(), 404);
+        Response response =
+                given().accept(ContentType.JSON)
+                        .queryParam("gender", "Female")
+                        .queryParam("nameContains", "J")
+                        .when().get("/api/spartans/search");
+
+        assertEquals(response.statusCode(), 200);
 
         assertEquals(response.contentType(), "application/json");
 
-        assertTrue(response.body().asString().contains("Not Found"));
+        assertTrue(response.body().asString().contains("Female"));
+
+        assertFalse(response.body().asString().contains("Male"));
+
+        assertTrue(response.body().asString().contains("Janette"));
 
         response.body().prettyPrint();
 
 
+
     }
+
+
 
 
 
