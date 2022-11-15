@@ -2,26 +2,18 @@ package com.cydeo.day3;
 
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import static io.restassured.RestAssured.baseURI;
-import static io.restassured.RestAssured.*;
-import static org.junit.jupiter.api.Assertions.*;
+import static io.restassured.RestAssured.given;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class SpartanTestsWithParameters {
 
-    @BeforeAll
-    public static void init(){
-        //save baseurl inside this variable so that we don't need to type each http method.
-        /** ipAddress */
-        String ipAddress = "3.86.235.137";
-        baseURI = "http://" + ipAddress + ":8000";
-    }
 
      /*   Given accept type is Json
           And Id parameter value is 5

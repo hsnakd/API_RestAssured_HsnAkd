@@ -18,43 +18,49 @@ public class ORDSApiTestWithPath extends HRTestBase {
     @Test
     public void test1(){
 
-        Response response= given().accept(ContentType.JSON)
-                        .queryParam("q","{\"region_id\":2}")
-                .when()
-                     .get("/countries");
+        Response response=
+                given().accept(ContentType.JSON)
+                .queryParam("q","{\"region_id\":2}")
+                .when().get("/countries");
 
         assertEquals(200,response.statusCode());
 
-        //print limit result
+        //print limit result        ==>  25
         System.out.println("response.path(\"limit\") = " + response.path("limit"));
 
         //print hasMore
         System.out.println("response.path(\"hasMore\") = " + response.path("hasMore"));
 
-        //print first CountryId
+        //print first CountryId     ==>  AR
         String firstCountryId = response.path("items[0].country_id");
         System.out.println("firstCountryId = " + firstCountryId);
 
-        //print second country name
+        //print second country name ==>  Brazil
         String secondCountryName = response.path("items[1].country_name");
         System.out.println("secondCountryName = " + secondCountryName);
 
-        //print "http://52.207.61.129:1000/ords/hr/countries/CA"
+        //print "http://3.86.235.137:1000/ords/hr/countries/CA"
         String thirdHref = response.path("items[2].links[0].href");
         System.out.println("thirdHref = " + thirdHref);
 
-        //get me all country names
+        //get me all country names  ==>  [Argentina, Brazil, Canada, Mexico, United States of America]
         List<String> countryNames = response.path("items.country_name");
         System.out.println("countryNames = " + countryNames);
 
+        for (String countryName : countryNames) {
+            System.out.println("countryName = " + countryName);
+        }
+
+        System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-");
+
         //assert that all regions ids are equal to 2
         List<Integer> allRegionsIDs = response.path("items.region_id");
+        System.out.println("allRegionsIDs = " + allRegionsIDs);
 
         for (Integer regionsID : allRegionsIDs) {
             System.out.println("regionsID = " + regionsID);
             assertEquals(2,regionsID);
         }
-
 
     }
 
@@ -69,7 +75,7 @@ public class ORDSApiTestWithPath extends HRTestBase {
         assertEquals("application/json",response.header("Content-Type"));
         assertTrue(response.body().asString().contains("IT_PROG"));
 
-         //make sure we have only IT_PROG as a job_id
+        //make sure we have only IT_PROG as a job_id
         List<String> allJobIDs = response.path("items.job_id");
 
         for (String jobID : allJobIDs) {
@@ -78,7 +84,12 @@ public class ORDSApiTestWithPath extends HRTestBase {
         }
 
         //HW
-        //print name of each IT_PROGs
+        //print first_name of each IT_PROGs
+        List<String> FirstNameIT_PROGs = response.path("items.first_name");
+
+        for (String FirstNameIT_PROG : FirstNameIT_PROGs) {
+            System.out.println("FirstNameIT_PROG = " + FirstNameIT_PROG);
+        }
 
     }
 
