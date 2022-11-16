@@ -16,17 +16,19 @@ public class HamcrestMatchersIntro {
     public void simpleTest1(){
 
         //actual 5+5
+//        MatcherAssert.assertThat(5+5, Matchers.is(10));
         assertThat(5+5, is(10));
-        assertThat(5+5,equalTo(10));
+        assertThat(5+5, equalTo(10));
+
         //matchers has 2 overloaded version
         //first that accept actual value
-        //second taht accept another matchers
+        //second that accept another matchers
         //below examples is method is accepting another matchers equal to make it readable
-        assertThat(5+5,is(equalTo(10)));
+        assertThat(5+5, is(equalTo(10)));
 
-        assertThat(5+5,not(9));
-        assertThat(5+5,is(not(9)));
-        assertThat(5+5,is(not(equalTo(9))));
+        assertThat(5+5, not(9));
+        assertThat(5+5, is(not(9)));
+        assertThat(5+5, is(not(equalTo(9))));
 
         //number comparison
         //greaterThan()
@@ -42,27 +44,30 @@ public class HamcrestMatchersIntro {
 
         String text = "B22 is learning Hamcrest";
 
-        //checking for euqality is same as numbers
+        //checking for equality is same as numbers
         assertThat(text,is("B22 is learning Hamcrest"));
         assertThat(text,equalTo("B22 is learning Hamcrest"));
         assertThat(text,is(equalTo("B22 is learning Hamcrest")));
 
         //check if this text starts with B22
         assertThat(text,startsWith("B22"));
-        //now do it in case insensitive manner
+
+        //now do it in case-insensitive manner
         assertThat(text,startsWithIgnoringCase("b22"));
-        //endswith
+
+        //endsWith
         assertThat(text,endsWith("rest"));
+        //endsWithIgnoringCase
+        assertThat(text,endsWithIgnoringCase("rest"));
 
         //check if text contains String learning
         assertThat(text,containsString("learning"));
         //with ignoring case
         assertThat(text,containsStringIgnoringCase("LEARNING"));
 
-        String str ="  ";
-
+        String str = "  ";
         //check if above str is blank
-        assertThat(str,blankString());
+        assertThat(str, blankString());
         //check if trimmed str is empty string
         assertThat(str.trim(),emptyString());
     }
@@ -74,14 +79,19 @@ public class HamcrestMatchersIntro {
         List<Integer> listOfNumbers = Arrays.asList(1,4,5,6,32,54,66,77,45,23);
 
         //check size of the list
-        assertThat(listOfNumbers,hasSize(10));
+        assertThat(listOfNumbers, hasSize(10));
+
         //check if this list hasItem 77
-        assertThat(listOfNumbers,hasItem(77));
+        assertThat(listOfNumbers, hasItem(77));
+
         //check if this list hasItems 77,54,23
-        assertThat(listOfNumbers,hasItems(77,54,23));
+        assertThat(listOfNumbers, hasItems(77,54,23));
 
         //check if all numbers greater than 0
-        assertThat(listOfNumbers,everyItem(greaterThan(0)));
+        assertThat(listOfNumbers, everyItem(greaterThan(0)));
+        assertThat(listOfNumbers, everyItem(greaterThanOrEqualTo(0)));
+//        assertThat(listOfNumbers, everyItem(equalTo(0)));
+
 
     }
 

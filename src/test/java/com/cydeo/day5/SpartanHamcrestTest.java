@@ -18,17 +18,18 @@ public class SpartanHamcrestTest extends SpartanTestBase {
 
         //along with this statement, I want to save names inside the List<String>
 
-         List<String> names = given().accept(ContentType.JSON)
-                                .and()
-                                .queryParams("nameContains","j",
-                                                    "gender","Male")
-                        .when()
-                                .get("/api/spartans/search")
-                        .then()
-                                .statusCode(200)
-                                .and()
-                                .body("totalElement",greaterThanOrEqualTo(3))
-                                .extract().response().jsonPath().getList("content.name");
+         List<String> names =
+                 given().accept(ContentType.JSON)
+                        .and()
+                        .queryParams("nameContains","j",
+                               "gender", "Male")
+                .when()
+                       .get("/api/spartans/search")
+                .then()
+                       .statusCode(200)
+                       .and()
+                       .body("totalElement", greaterThanOrEqualTo(3))
+                       .extract().response().jsonPath().getList("content.name");
 
         System.out.println(names);
 

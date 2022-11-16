@@ -26,11 +26,11 @@ public class HamcrestMatchersApiTest {
     @Test
     public void test1(){
 
-            given().log().all().
-                    accept(ContentType.JSON)
+            given().log().all()
+                    .accept(ContentType.JSON)
                     .and().pathParam("id",15)
             .when()
-                    .get("http://52.207.61.129:8000/api/spartans/{id}")
+                    .get("http://3.86.235.137:8000/api/spartans/{id}")
             .then()
                     .statusCode(200)
                     .and().assertThat()
@@ -50,23 +50,23 @@ public class HamcrestMatchersApiTest {
                     given()
                             .accept(ContentType.JSON)
                             .and()
-                            .pathParam("id",10423)
+                            .pathParam("id",2)
                             .and()
 
                     .when()
-                            .get("http://api.cybertektraining.com/teacher/{id}")
+                            .get("https://api.training.cydeo.com/teacher/{id}")
                     .then()
                             .statusCode(200)
                             .and()
                             .contentType("application/json;charset=UTF-8")
                             .and()
-                            .header("Content-Length",is("236"))
+                            .header("transfer-encoding", is("chunked"))
                             .and()
                             .header("Date",notNullValue())
                             .and().assertThat()
-                            .body("teachers[0].firstName",is("Alexander"))
-                            .body("teachers[0].lastName",is("Syrup"))
-                            .body("teachers[0].gender",equalTo("male"));
+                            .body("teachers[0].firstName",is("Ron"))
+                            .body("teachers[0].lastName",is("Tona"))
+                            .body("teachers[0].gender", equalTo("Male"));
 
     }
 
@@ -74,15 +74,15 @@ public class HamcrestMatchersApiTest {
     @Test
     public void teachersTest(){
 
-        //verify Alexander,Darleen,Sean inside the all teachers
+        //verify "Ron","Tet","Mario" inside the all teachers
         given()
                 .accept(ContentType.JSON)
         .when()
-                .get("http://api.cybertektraining.com/teacher/all")
+                .get("https://api.training.cydeo.com/teacher/all")
         .then()
                 .statusCode(200)
                 .and()
-                .body("teachers.firstName",hasItems("Alexander","Darleen","Sean"));
+                .body("teachers.firstName", hasItems("Ron","Tet","Mario"));
 
 
     }
