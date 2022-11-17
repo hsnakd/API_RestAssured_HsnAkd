@@ -19,7 +19,10 @@ public class ORDSPojoGetRequestTest extends HRTestBase {
     @Test
     public void regionTest(){
 
-        JsonPath jsonPath = get("/regions").then().statusCode(200).log().body().extract().jsonPath();
+        JsonPath jsonPath =
+                         get("/regions")
+                        .then().statusCode(200)
+                        .log().body().extract().jsonPath();
 
         Region region1 = jsonPath.getObject("items[0]", Region.class);
 
@@ -54,9 +57,12 @@ public class ORDSPojoGetRequestTest extends HRTestBase {
     @DisplayName("GET request to region only some fields test")
     @Test
     public void regionPojoTest(){
-        //send a get request and save everthing inside the regions object
-        //since we prepare pojo also for the all properties we dont need to use any path so as() method is enough
-        Regions regions = get("/regions").then().statusCode(200).extract().response().as(Regions.class);
+        //send a get request and save everything inside the regions object
+        //since we prepare pojo also for the all properties we don't need to use any path so as() method is enough
+        Regions regions =
+                         get("/regions")
+                        .then().statusCode(200)
+                        .extract().response().as(Regions.class);
 
         //verify count is 4
         assertThat(regions.getCount(),is(4));
