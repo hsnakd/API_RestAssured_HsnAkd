@@ -15,7 +15,7 @@ public class PathMethod {
 
     @BeforeAll
     public static void setUpBase() {
-        baseURI = "http://54.167.52.69:8000/api/spartans";
+        baseURI = "http://3.86.235.137:8000/api/spartans";
     }
 
     @Test
