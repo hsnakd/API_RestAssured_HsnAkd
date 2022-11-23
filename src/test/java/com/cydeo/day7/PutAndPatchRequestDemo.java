@@ -24,7 +24,7 @@ public class PutAndPatchRequestDemo extends SpartanTestBase {
 
         given().contentType(ContentType.JSON) //hey api I am sending JSON body
                 .body(putRequestMap).log().body()
-                .and().pathParam("id",388)
+                .and().pathParam("id",122)
                 .when().put("/api/spartans/{id}")
                 .then()
                 .statusCode(204);
@@ -44,7 +44,7 @@ public class PutAndPatchRequestDemo extends SpartanTestBase {
 
         given().contentType(ContentType.JSON) //hey api I am sending JSON body
                 .body(putRequestMap).log().body()
-                .and().pathParam("id",388)
+                .and().pathParam("id",122)
                 .when().patch("/api/spartans/{id}")
                 .then()
                 .statusCode(204);
@@ -58,7 +58,7 @@ public class PutAndPatchRequestDemo extends SpartanTestBase {
     @DisplayName("DELETE one spartan")
     @Test
     public void deleteSpartan(){
-        int idToDelete= 258;
+        int idToDelete= 121;
 
 
             given().pathParam("id",idToDelete)
@@ -66,6 +66,18 @@ public class PutAndPatchRequestDemo extends SpartanTestBase {
                     .then().statusCode(204);
 
             //send a get request after you delete make sure you are getting 404
+
+        given().pathParam("id",idToDelete)
+                .when().delete("/api/spartans/{id}")
+                .then().statusCode(404);
+
+        //send a get request after you delete make sure you are getting 404
+
+        given().accept(ContentType.JSON)
+                .and().pathParam("id",idToDelete)
+                .when().get("/api/spartans/{id}")
+                .then().statusCode(404);
+
 
     }
 

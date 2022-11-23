@@ -1,17 +1,16 @@
 package com.cydeo.week2;
 
-import io.restassured.http.*;
-import io.restassured.path.json.*;
-import io.restassured.response.*;
-import org.junit.jupiter.api.*;
-import week2.pojo.*;
-
-import java.util.*;
+import com.cydeo.week2.pojo.Search;
+import com.cydeo.week2.pojo.Spartan;
+import io.restassured.http.ContentType;
+import io.restassured.path.json.JsonPath;
+import io.restassured.response.Response;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.baseURI;
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.is;
 
 public class SpartanToClass {
 
