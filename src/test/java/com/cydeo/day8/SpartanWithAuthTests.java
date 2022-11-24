@@ -9,12 +9,11 @@ import static io.restassured.RestAssured.given;
 
 public class SpartanWithAuthTests extends SpartanAuthTestBase {
 
-    @DisplayName("GET /api/spartans as a public user(guest) expect 401 ")
+    @DisplayName("GET /api/spartans as a public user (guest) expect statusCode 401 ")
     @Test
     public void test1(){
-            given().accept(ContentType.JSON).
-                    when().
-            get("/api/spartans")
+                     given().accept(ContentType.JSON)
+                    .when().get("/api/spartans")
                     .then().statusCode(401)
                     .log().all();
 
@@ -24,9 +23,12 @@ public class SpartanWithAuthTests extends SpartanAuthTestBase {
     @DisplayName("GET /api/spartans as admin user expect 200")
     @Test
     public void testAdmin(){
-        //how to pass admin admin as a username and password ?
+        //how to pass as a username : admin  and password : admin ?
+        String username = "admin";
+        String password = "admin";
+
         given()
-                .auth().basic("admin","admin")
+                .auth().basic(username, password)
                 .and().accept(ContentType.JSON)
                 .log().all()
         .when()
@@ -40,8 +42,11 @@ public class SpartanWithAuthTests extends SpartanAuthTestBase {
     @DisplayName("DELETE /spartans/{id} as editor user expect 403")
     @Test
     public void testEditorDelete(){
+        String username = "editor";
+        String password = "editor";
+
         given()
-                .auth().basic("editor","editor")
+                .auth().basic(username, password)
                 .and().accept(ContentType.JSON)
                 .and().pathParam("id",30)
         .when()
@@ -52,11 +57,10 @@ public class SpartanWithAuthTests extends SpartanAuthTestBase {
     }
 
     /*
-        As a homework,write a detealied test for Role Base Access Control(RBAC)
+        As a homework, write a detailed test for Role Base Access Control(RBAC)
             in Spartan Auth app (7000)
-            Admin should be able take all CRUD
-            Editor should be able to take all CRUD
-                other than DELETE
+            Admin should be able to take all CRUD
+            Editor should be able to take all CRUD, other than DELETE
             User should be able to only READ data
                 not update,delete,create (POST,PUT,PATCH,DELETE)
        --------------------------------------------------------
