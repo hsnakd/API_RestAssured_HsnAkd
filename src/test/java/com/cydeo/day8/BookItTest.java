@@ -11,20 +11,13 @@ public class BookItTest {
     @BeforeAll
     public static void init(){
         //save baseurl inside this variable so that we dont need to type each http method.
-//        baseURI = "https://cybertek-reservation-api-docs.herokuapp.com";
         baseURI = "https://cybertek-reservation-api-qa.herokuapp.com";
-
     }
 
-    //create BookItUtil then create a method, that accepts email and password return token Bearer +yourToken as a String
+    //create BookItUtil then create a method, that accepts email and password return token Bearer + yourToken as a String
+    String accessToken = "Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIxMTUxNiIsImF1ZCI6InRlYWNoZXIifQ.saFcTsRyMJQj1e8jhya1zpxngBggh5fC3lGsGyBCrQs";
 
-    String accessToken = "Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIxMzkiLCJhdWQiOiJzdHVkZW50LXRlYW0tbGVhZGVyIn0._vM1-eRoS7SsHu6T-QPdJoEdA8LSwnxUvvTTbhV-8ms";
-//    String accessToken = "Bearer eeyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI4MiIsImF1ZCI6InN0dWRlbnQtdGVhbS1tZW1iZXIifQ.zIcFXhVng5REMvXmUGrJRSPMp87ImMqxVoM6ofeDpZA";
 
-//    {
-//        "accessToken": "         eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI4MiIsImF1ZCI6InN0dWRlbnQtdGVhbS1tZW1iZXIifQ.zIcFXhVng5REMvXmUGrJRSPMp87ImMqxVoM6ofeDpZA",
-//            "refreshToken": "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI4MiIsImF1ZCI6InN0dWRlbnQtdGVhbS1tZW1iZXIifQ.zIcFXhVng5REMvXmUGrJRSPMp87ImMqxVoM6ofeDpZA"
-//    }
     @DisplayName("GET all campuses")
     @Test
     public void testAuth1(){
@@ -71,4 +64,51 @@ public class BookItTest {
  team_member_password    abs123
  team_leader_email    lfinnisz@yolasite.com
  team_leader_password    lissiefinnis
+
+        {
+             "accessToken": "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIxMTUxNiIsImF1ZCI6InRlYWNoZXIifQ.saFcTsRyMJQj1e8jhya1zpxngBggh5fC3lGsGyBCrQs",
+             "refreshToken": "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIxMTUxNiIsImF1ZCI6InRlYWNoZXIifQ.saFcTsRyMJQj1e8jhya1zpxngBggh5fC3lGsGyBCrQs"
+         }
+
+ *******************************************************
+
+ https://cybertek-reservation-api-qa.herokuapp.com/sign?email=blyst6@si.edu&password=barbabaslyst
+
+ teacher_email           blyst6@si.edu
+ teacher_password        barbabaslyst
+
+ {
+ "accessToken": "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIxMTUxNiIsImF1ZCI6InRlYWNoZXIifQ.saFcTsRyMJQj1e8jhya1zpxngBggh5fC3lGsGyBCrQs",
+ "refreshToken": "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIxMTUxNiIsImF1ZCI6InRlYWNoZXIifQ.saFcTsRyMJQj1e8jhya1zpxngBggh5fC3lGsGyBCrQs"
+ }
+
+ *******************************************************
+
+ */
+
+
+
+/* old ones
+//        baseURI = "https://cybertek-reservation-api-docs.herokuapp.com";
+
+
+//    String accessToken = "Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIxMzkiLCJhdWQiOiJzdHVkZW50LXRlYW0tbGVhZGVyIn0._vM1-eRoS7SsHu6T-QPdJoEdA8LSwnxUvvTTbhV-8ms";
+//    String accessToken = "Bearer eeyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI4MiIsImF1ZCI6InN0dWRlbnQtdGVhbS1tZW1iZXIifQ.zIcFXhVng5REMvXmUGrJRSPMp87ImMqxVoM6ofeDpZA";
+
+ */
+
+/**
+
+ The bookit api uses the following error codes:
+
+ Error Code     Name                        Meaning
+ 400            Bad Request	                your request is invalid.
+ 401	        Unauthorized	            your authorization token is wrong.
+ 403	        Forbidden	                the resource requested is hidden for you.
+ 404	        Not Found	                the specified resource could not be found.
+ 409	        Conflict	                indicates that the request could not be processed because of conflict in the current state of the resource.
+ 422	        Unprocessable Entity	    your request structure is right, but something wrong with info you're passing to the service.
+ 429	        Too Many Requests	        you're requesting too many resources, slow down.
+ 500	        Internal Server Error	    we had a problem with our server, try again later.
+
  */
