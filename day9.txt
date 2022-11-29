@@ -1,5 +1,6 @@
 day9
-resources   -->     Environments
-resources   -->     features
-pom.xml     -->     selenium - cucumber dependencies
-
+resources                   -->     Environments
+resources                   -->     features
+pom.xml                     -->     selenium - cucumber dependencies
+configuration.properties    -->     credentials
+database                    -->     set up

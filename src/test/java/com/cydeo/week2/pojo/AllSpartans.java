@@ -1,8 +1,6 @@
 package com.cydeo.week2.pojo;
 
-import com.fasterxml.jackson.annotation.*;
-
-import java.util.*;
+import java.util.List;
 
 public class AllSpartans {
 

@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 
 public class FirstTest {
 
-    String baseUrl = "http://3.86.235.137:8000/api/spartans";
+    String baseUrl = "http://54.167.52.69:8000/api/spartans";
 
     @Test
     public void test1() {

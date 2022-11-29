@@ -1,10 +1,11 @@
 package com.cydeo.day12;
 
-import com.cydeo.utilities.SpartanNewBase;
+import com.cybertek.utilities.*;
 import io.restassured.http.ContentType;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
+
 public class SpartanSpecTestOriginal extends SpartanNewBase {
 
 

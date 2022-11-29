@@ -1,21 +1,20 @@
-package com.cydeo.week2.pojo;
+package com.cydeo.week3.pojoPractice;
+
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import java.util.List;
-
-
 @Getter
 @Setter
 @ToString
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Search {
+public class Address {
 
-    private List<Spartan> content;
-    private int totalElement;
-
-
+    private int addressId;
+    private String street;
+    private String city;
+    private String state;
+    private int zipCode;
 }

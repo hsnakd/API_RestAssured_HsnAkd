@@ -1,9 +1,10 @@
 package com.cydeo.day12;
 
-import com.cydeo.utilities.BookitTestBase;
+import com.cybertek.utilities.*;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
+
 public class BookitSpecTest extends BookitTestBase {
 
     @Test

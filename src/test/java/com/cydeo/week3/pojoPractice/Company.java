@@ -1,4 +1,4 @@
-package com.cydeo.week2.pojo;
+package com.cydeo.week3.pojoPractice;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
@@ -12,10 +12,11 @@ import java.util.List;
 @Setter
 @ToString
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Search {
+public class Company {
 
-    private List<Spartan> content;
-    private int totalElement;
-
-
+    private int companyId;
+    private String companyName;
+    private String title;
+    private String startDate;
+    private List<Address> addressList;
 }

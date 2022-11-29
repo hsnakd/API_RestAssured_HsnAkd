@@ -1,13 +1,12 @@
 package com.cydeo.week2;
 
-import com.cydeo.week2.pojo.Search;
-import com.cydeo.week2.pojo.Spartan;
 import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import week2.pojo.*;
 
 import static io.restassured.RestAssured.baseURI;
 import static io.restassured.RestAssured.given;

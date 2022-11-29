@@ -18,9 +18,8 @@ public class SpartanNewBase {
 
     @BeforeAll
     public static void init(){
-        //save baseurl inside this variable so that we don't need to type each http method.
+        //save baseurl inside this variable so that we dont need to type each http method.
         baseURI = "http://44.195.19.167";
-//        baseURI = "http://3.86.235.137";
         port = 7000;
         basePath ="/api";
 
@@ -39,7 +38,7 @@ public class SpartanNewBase {
        responseSpec = expect().statusCode(200)
                 .and()
                 .contentType(ContentType.JSON)
-                .logDetail(LogDetail.ALL);  //logging with response specification
+                .logDetail(LogDetail.ALL);  //logging with response specficiation
 
 
 

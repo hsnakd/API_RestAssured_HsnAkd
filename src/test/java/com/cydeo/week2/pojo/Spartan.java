@@ -1,7 +1,9 @@
 package com.cydeo.week2.pojo;
 
 
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 @Getter
 @Setter

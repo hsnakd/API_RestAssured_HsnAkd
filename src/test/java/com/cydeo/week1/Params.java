@@ -17,7 +17,7 @@ public class Params {
 
     @BeforeAll
     public static void setUpBase() {
-        baseURI = "http://3.86.235.137:8000/api/spartans";
+        baseURI = "http://54.167.52.69:8000/api/spartans";
     }
 
     @Test
@@ -39,7 +39,7 @@ public class Params {
                 .when().get("/{id}");
 
         // when negative testing, the status code is 404
-        Assertions.assertEquals(404, response.statusCode());
+        Assertions.assertEquals(response.statusCode(), 404);
 
         // validate error message
         Assertions.assertTrue(response.body().asString().contains("Not Found"));
