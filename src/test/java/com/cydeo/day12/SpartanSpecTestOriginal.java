@@ -1,6 +1,6 @@
 package com.cydeo.day12;
 
-import com.cybertek.utilities.*;
+import com.cydeo.utilities.*;
 import io.restassured.http.ContentType;
 import org.junit.jupiter.api.Test;
 

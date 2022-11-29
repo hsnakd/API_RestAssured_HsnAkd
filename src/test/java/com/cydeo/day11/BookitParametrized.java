@@ -1,6 +1,6 @@
 package com.cydeo.day11;
 
-import com.cybertek.utilities.*;
+import com.cydeo.utilities.*;
 import io.restassured.http.ContentType;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;

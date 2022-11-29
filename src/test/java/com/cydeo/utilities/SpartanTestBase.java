@@ -3,16 +3,19 @@ package com.cydeo.utilities;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 
-import static io.restassured.RestAssured.baseURI;
+import static io.restassured.RestAssured.*;
 
 public abstract class SpartanTestBase {
 
     @BeforeAll
     public static void init(){
-        //save baseurl inside this variable so that we dont need to type each http method.
-        baseURI = "http://44.202.119.26:8000";
+        //save baseurl inside this variable so that we don't need to type each http method.
+//        baseURI = "http://3.86.235.137:8000";
+        baseURI = "http://3.86.235.137";
+        port = 8000;
+        basePath ="";
 
-        String dbUrl = "jdbc:oracle:thin:@44.202.119.26:1521:xe";
+        String dbUrl = "jdbc:oracle:thin:@3.86.235.137:1521:xe";
         String dbUsername = "SP";
         String dbPassword = "SP";
 

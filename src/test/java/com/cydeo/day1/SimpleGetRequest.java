@@ -7,16 +7,18 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class SimpleGetRequest {
-    /** ipAddress */
-    String ipAddress = "3.86.235.137";
-    /** endPoint */
+
+    String baseUrl = "http://3.86.235.137";
+    String port = ":8000";
     String endPoint = "/api/spartans";
-    String url = "http://" + ipAddress + ":8000" + endPoint;
+    String idNumber = "";
+
+    String baseURI = baseUrl + port + endPoint;
 
     @Test
     public void test1(){
         //send a get request and save response inside the Response object
-        Response response = RestAssured.get(url);
+        Response response = RestAssured.get(baseURI);
 
         //print response status code
         System.out.println(response.statusCode());
@@ -30,7 +32,7 @@ public class SimpleGetRequest {
 
     @Test
     public void test2(){
-        Response response = RestAssured.get(url);
+        Response response = RestAssured.get(baseURI);
 
         Assertions.assertEquals(200, response.statusCode());
         //body should contain Allen
@@ -42,7 +44,7 @@ public class SimpleGetRequest {
     public void test3(){
         // Given accept type is json
         Response response = RestAssured.given().accept(ContentType.JSON).
-                when().get(url);
+                when().get(baseURI);
 
 
         Assertions.assertEquals(200, response.statusCode());

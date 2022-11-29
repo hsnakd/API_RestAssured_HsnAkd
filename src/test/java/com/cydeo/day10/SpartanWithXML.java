@@ -1,6 +1,6 @@
 package com.cydeo.day10;
 
-import com.cybertek.utilities.*;
+import com.cydeo.utilities.*;
 import io.restassured.http.ContentType;
 import io.restassured.path.xml.XmlPath;
 import io.restassured.response.Response;
@@ -29,7 +29,7 @@ public class SpartanWithXML extends SpartanAuthTestBase {
                         .get("/api/spartans")
                 .then()
                         .statusCode(200)
-                        .contentType("application/xml;charset=UTF-8") //we verify we got xml through header
+                        .contentType("application/xml") //we verify we got xml through header
                         .body("List.item[0].name",is("Meade"))
                         .body("List.item[0].gender",is("Male"))
                         .log().all();

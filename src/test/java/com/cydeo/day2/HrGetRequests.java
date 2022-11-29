@@ -15,9 +15,13 @@ public class HrGetRequests {
     @BeforeAll
     public static void init(){
         //save baseurl inside this variable so that we dont need to type each http method.
-        /** ipAddress */
-        String ipAddress = "3.86.235.137";
-        baseURI = "http://" + ipAddress + ":1000/ords/hr";
+
+        String ipAddress = "http://3.86.235.137";
+        String port = ":1000";
+        String endPoint = "/ords/hr";
+
+        baseURI = ipAddress + port + endPoint;
+
     }
 
     @DisplayName("GET request to /regions")

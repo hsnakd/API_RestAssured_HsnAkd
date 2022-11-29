@@ -1,6 +1,6 @@
 package com.cydeo.day11;
 
-import com.cybertek.utilities.*;
+import com.cydeo.utilities.*;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;

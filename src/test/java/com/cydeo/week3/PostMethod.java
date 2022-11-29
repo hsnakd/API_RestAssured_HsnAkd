@@ -4,7 +4,7 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import week2.pojo.Spartan;
+import com.cydeo.week2.pojo.Spartan;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -15,18 +15,24 @@ public class SpartanGetRequests {
 //    Then status code must 200
 //    And response Content Type must be application/json
 //    And response body should include spartan result
-    /** ipAddress */
-    String ipAddress = "3.86.235.137";
-    String baseUrl = "http://" + ipAddress + ":8000";
+
+
+    String baseUrl = "http://3.86.235.137";
+    String port = ":8000";
+    String endPoint = "/api/spartans";
+    String idNumber = "/3";
+
+    String baseURI = baseUrl + port + endPoint;
+
+
 
     @Test
     public void test1(){
-        /** endPoint */
-        String endPoint = "/api/spartans";
+
 
         Response response =  RestAssured.given().accept(ContentType.JSON)
                                         .when()
-                                        .get(baseUrl + endPoint);
+                                        .get(baseURI);
 
         //printing status code from response object
         System.out.println("response.statusCode() = " + response.statusCode());
@@ -61,12 +67,10 @@ public class SpartanGetRequests {
     @DisplayName("GET one spartan /api/spartans/3 and verify")
     @Test
     public void test2(){
-        /** endPoint */
-        String endPoint = "/api/spartans";
-        /** idNumber */
-        String idNumber = "/3";
+
+
         Response response = RestAssured.given().accept(ContentType.JSON).
-                when().get(baseUrl + endPoint + idNumber);
+                when().get(baseURI + idNumber);
 
 
         //verify status code 200
@@ -100,7 +104,7 @@ public class SpartanGetRequests {
         //send request and save response inside the response object
         /** endPoint */
         String endPoint = "/api/hello";
-        Response response = RestAssured.when().get(baseUrl + endPoint);
+        Response response = RestAssured.when().get(baseUrl + port + endPoint);
 
         //verify status code 200
         /** statusCode */
