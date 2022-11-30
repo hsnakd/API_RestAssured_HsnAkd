@@ -30,5 +30,6 @@ public class CsvFileSourceParametrizedTest {
             .then()
                 .statusCode(200)
                 .body("places",hasSize(zipCountArg));
+        System.out.println("");
     }
 }

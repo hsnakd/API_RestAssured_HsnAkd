@@ -16,8 +16,8 @@ public class MethodSourceParameterizedTest {
     public void testPrintNames(String name){
 
         System.out.println("name = " + name);
-    }
 
+    }
 
 
     public static List<String> getNames(){
@@ -32,9 +32,9 @@ public class MethodSourceParameterizedTest {
 
     public static List<Map<String,String>> getExcelData(){
         //get your file object
-        ExcelUtil vytrackFile = new ExcelUtil("src/test/resources/Vytracktestdata.xlsx","QA3-all");
-        //return sheet as a alist of map
-        return vytrackFile.getDataList();
+        ExcelUtil vyTrackFile = new ExcelUtil("src/test/resources/Vytracktestdata.xlsx","QA3-all");
+        //return sheet as a list of map
+        return vyTrackFile.getDataList();
 
     }
 

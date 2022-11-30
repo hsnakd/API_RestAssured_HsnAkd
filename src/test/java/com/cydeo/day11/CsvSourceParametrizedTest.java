@@ -26,7 +26,7 @@ public class CsvSourceParametrizedTest {
         System.out.println("num1 = " + num1);
         System.out.println("num2 = " + num2);
         System.out.println("sum = " + sum);
-        //assert num1+ num2 equalsto sum
+        //assert num1 + num2 equal to sum
 
         assertThat(num1 + num2, equalTo(sum));
     }
@@ -46,13 +46,13 @@ public class CsvSourceParametrizedTest {
     //print number of places for each request
 
     @ParameterizedTest
-    @CsvSource({"NY, New York",
-               "CO, Denver",
-               "VA, Fairfax",
-               "VA, Arlington",
-               "MA, Boston",
-               "NY, New York",
-               "MD, Annapolis"})
+    @CsvSource({    "NY, New York",
+                    "CO, Denver",
+                    "VA, Fairfax",
+                    "VA, Arlington",
+                    "MA, Boston",
+                    "NY, New York",
+                    "MD, Annapolis"})
     public void zipCodeMultiInputTest(String state,String city){
         System.out.println("state = " + state);
         System.out.println("city = " + city);
@@ -63,6 +63,7 @@ public class CsvSourceParametrizedTest {
                 .pathParam("state", state)
                 .pathParam("city", city)
                 .log().uri()
+
                 .when()
                 .get("/us/{state}/{city}")
                 .then()
@@ -75,6 +76,6 @@ public class CsvSourceParametrizedTest {
 
         System.out.println("placeNumber = " + placeNumber);
 
-
+        System.out.println("");
     }
 }
