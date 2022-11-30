@@ -19,6 +19,7 @@ public class HrGetRequests {
         String ipAddress = "http://3.86.235.137";
         String port = ":1000";
         String endPoint = "/ords/hr";
+        String basePath = "/ords/hr";
 
         baseURI = ipAddress + port + endPoint;
 

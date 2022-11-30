@@ -11,6 +11,7 @@ public class SimpleGetRequest {
     String baseUrl = "http://3.86.235.137";
     String port = ":8000";
     String endPoint = "/api/spartans";
+    String basePath = "/api/spartans";
     String idNumber = "";
 
     String baseURI = baseUrl + port + endPoint;

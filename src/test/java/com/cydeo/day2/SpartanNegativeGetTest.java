@@ -20,6 +20,7 @@ public class SpartanNegativeGetTest {
         String baseUrl = "http://3.86.235.137";
         String port = ":8000";
         String endPoint = "";
+        String basePath = "";
         String idNumber = "";
 
         baseURI = baseUrl + port + endPoint;

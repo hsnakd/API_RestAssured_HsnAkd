@@ -112,8 +112,14 @@
 <!--            <version>2.2</version>-->
 <!--        </dependency>-->
 
-
-
+        <!-- https://mvnrepository.com/artifact/io.rest-assured/json-schema-validator -->
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>json-schema-validator</artifactId>
+<!--            <version>4.4.0</version>-->
+            <version>5.3.0</version>
+            <scope>test</scope>
+        </dependency>
 
 
 
