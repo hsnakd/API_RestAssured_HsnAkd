@@ -23,8 +23,8 @@ public class OldRestAssuredTest extends SpartanNewBase {
         .then()
                 .statusCode(200)
                 .contentType(ContentType.JSON)
-                .body("id[0]",is(10))
-                .body("id[5]",is(199))
+                .body("id[0]",is(1))
+                .body("id[5]",is(6))
                 .log().all();
 
     }
@@ -34,7 +34,7 @@ public class OldRestAssuredTest extends SpartanNewBase {
 
         /*
             in previous version of Restassured, the given when then style
-            was actually written in given expect when format.
+            was actually written in given expect when format
             it will assert all the result and give one answer and does not fail whole thing
             if first one fail unlike new structure.
 
@@ -49,7 +49,7 @@ public class OldRestAssuredTest extends SpartanNewBase {
                 .and()
                 .contentType("application/json")
                 .body("id[0]",is(10))
-                .body("id[5]",is(199))
+                .body("id[5]",is(60))
                 .logDetail(LogDetail.ALL)   //log way using with expect()
         .when()
                 .get("/spartans");

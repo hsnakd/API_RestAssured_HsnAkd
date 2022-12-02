@@ -27,12 +27,12 @@ public class SpartanSpecTest extends SpartanNewBase {
 //                                             .contentType(ContentType.JSON)
 //                                              .logDetail(LogDetail.ALL);  //logging with response specficiation
 
-         given().
-                 spec(requestSpec)
+         given()
+                 .spec(requestSpec)
         .when()
-                .get("/spartans")
+                 .get("/spartans")
         .then()
-                .spec(responseSpec);
+                 .spec(responseSpec);
 
 
      }
@@ -62,7 +62,7 @@ public class SpartanSpecTest extends SpartanNewBase {
                     .get("/spartans/search")
             .then()
                     .spec(responseSpec)
-                    .body("numberOfElements",is(7));
+                    .body("numberOfElements",is(6));
 
 
 

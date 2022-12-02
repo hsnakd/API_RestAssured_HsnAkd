@@ -2,17 +2,32 @@ package com.cydeo.day3;
 
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
 import java.util.Map;
 
+import static io.restassured.RestAssured.baseURI;
 import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class SpartanTestsWithParameters {
+    @BeforeAll
+    public static void init(){
+        //save baseurl inside this variable so that we don't need to type each http method.
+        String baseUrl = "http://3.86.235.137";
+        String port = ":8000";
+        String endPoint = "";
+        String basePath = "";
+        String idNumber = "";
+
+        baseURI = baseUrl + port + endPoint;
+
+    }
+
 
 
      /*   Given accept type is Json
@@ -26,6 +41,8 @@ public class SpartanTestsWithParameters {
     @DisplayName("GET request to /api/spartans/{id} with ID 5")
     @Test
     public void test1(){
+        //save baseurl inside this variable so that we don't need to type each http method.
+
 
         Response response =  given().accept(ContentType.JSON)
                                     .and().pathParam("id", 5)
