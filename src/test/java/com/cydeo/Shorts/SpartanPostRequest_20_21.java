@@ -56,6 +56,7 @@ public class SpartanPostRequest_20_21 {
 
         // verify success message
         assertEquals(response.path("success"), "A Spartan is Born!");
+        assertEquals(response.path("data.name"), "Mike");
 
         // verify request body
         JsonPath json = response.jsonPath();
@@ -91,7 +92,7 @@ public class SpartanPostRequest_20_21 {
     @Test
     public void PostWithPojo(){
         Spartan spartan = new Spartan();
-        spartan.setName("MikePOJO");
+        spartan.setName("MikePOJO_131");
         spartan.setGender("Male");
         spartan.setPhone(1234567890l);
 
@@ -109,7 +110,7 @@ public class SpartanPostRequest_20_21 {
         // ====================GET REQUEST ======================
         Response response2 =
                 given().accept(ContentType.JSON)
-                        .pathParam("id", 112)
+                        .pathParam("id", 131)
                         .and().when().get("/api/spartans/{id}");
 
         Spartan spartanResponse = response2.body().as(Spartan.class);
